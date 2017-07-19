@@ -1,0 +1,40 @@
+<h4>Choose the graphic you want to display</h4>
+
+<form #form="ngForm">
+    <div class="badge">
+        <label for="bar">
+            bar graph<input value="bar" id="bar" type="radio" name="type" ngModel>
+        </label>
+    </div>
+    <div class="badge">
+        <label for="line">
+            line graph<input value="line" id="line" type="radio" name="type" ngModel>
+        </label>
+    </div>
+    <div class="badge">
+        <label for="pie">
+            pie chart<input value="pie" id="pie" type="radio" name="type" ngModel>
+        </label>
+    </div>
+</form>
+
+<div [ngStyle]="{'border': '2px solid red', 'padding': '10px'}">
+    <div *ngIf="form.value.type == 'bar'">
+        <app-bar-graph
+            width="550"
+            height="200"
+            [data]="data" 
+            xProp="salesperson" 
+            yProp="sales"
+            xTag="employees"
+            yTag="sales"
+        >
+        </app-bar-graph>
+    </div>
+    <div *ngIf="form.value.type == 'line'">
+        <app-line-graph></app-line-graph>
+    </div>
+    <div *ngIf="form.value.type == 'pie'">
+        <app-pie-chart></app-pie-chart>
+    </div>
+</div>
