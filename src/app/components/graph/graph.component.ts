@@ -1,4 +1,4 @@
-import { Component, OnInit, OnChanges } from '@angular/core';
+import { Component, OnInit, OnChanges, AfterViewInit } from '@angular/core';
 import { ChartDataService } from '../../services/chart-data.service'
 import { Observable } from 'rxjs/Observable'
 import { SalesPerformance } from '../../types/sales-performance'
@@ -13,12 +13,19 @@ import 'rxjs/add/operator/switchMap'
   styleUrls: ['./graph.component.css']
 })
 export class GraphComponent implements OnInit {
-  private data: Observable<any>
+  private barData: SalesPerformance[]
+  private lineData: { labels: string[], series: number[] }
+
   constructor(private chartData: ChartDataService) { }
 
   ngOnInit () {
-    this.data = this.chartData
+    this.chartData
       .getEmployeePerformance()
-      .switchMap(file => Observable.from(file))
+      .subscribe(v => { this.barData = v} )
+      // .switchMap(file => Observable.from(file))
+      
+    this.chartData
+      .getWeeklyStats()
+      .subscribe(v => { this.lineData = v} )
   }
 }

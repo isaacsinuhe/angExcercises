@@ -1,1 +1,14 @@
-<div class="chart"></div>
+<div class="col-sm-6">
+    <h1>{{title}}</h1>
+
+    <form>
+        <label for="emp">
+            name<input id="emp" type="text" name="employee" ngModel #employee="ngModel">
+        </label>
+        <label for="sale">
+            sale<input type="number" name="sale" ngModel #sale="ngModel">
+        </label>
+        <input type="submit" value="add" (click)="addToSet({'salesperson': employee.value, 'sales': sale.value})">
+    </form>
+    <div class="chart"></div>
+</div>

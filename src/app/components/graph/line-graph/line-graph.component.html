@@ -1,18 +1,24 @@
-<p>
-  line-graph works!
-</p>
-<div style="display: block; width: 50%">
-  <canvas 
-  baseChart 
-    width="200" 
-    height="200" 
-    [datasets]="lineChartData" 
-    [labels]="lineChartLabels" 
-    [options]="lineChartOptions"
-    [colors]="lineChartColors" 
-    [legend]="lineChartLegend" 
-    [chartType]="lineChartType" 
-    (chartHover)="chartHovered($event)" 
-    (chartClick)="chartClicked($event)">
-  </canvas>
+<div class="col-sm-6">
+ 
+  <h1>{{title}}</h1>
+  <form #f="ngForm">
+    <label for="mon">
+        Mon<input type="number" id="mon"name="mon" ngModel #a="ngModel"></label>
+    <label for="tue">
+        Tue<input id="tue" type="number" name="tue" ngModel #b="ngModel"></label>
+    <label for="wed">
+        Wed<input id="wed" type="number" name="wed" ngModel #c="ngModel"></label>
+    <label for="thu">
+        Thu<input id="thu" type="number" name="thu" ngModel #d="ngModel"></label>
+    <label for="fri">
+        Fri<input id="fri" type="number" name="fri" ngModel #e="ngModel"></label>
+    <label for="sat">
+        Sat <input id="sat" type="number" name="sat" ngModel #f="ngModel"></label>
+    <input 
+      type="submit"
+      value="add" 
+      (click)="addToSet([a.value, b.value, c.value, d.value, e.value, f.value])">
+  </form>
+
+  <div class="ct-chart"></div>
 </div>

@@ -1,1 +1,17 @@
 /* You can add global styles to this file, and also import other style files */
+.bar, .ct-chart .ct-area {
+    stroke: none;
+    fill-opacity: .1;
+}
+
+.bar, .ct-series .ct-line, .ct-series .ct-point{
+    stroke: #f4c63d;
+}
+
+.bar, .ct-chart .ct-line {
+    stroke-width: 4px;
+}
+
+.ct-chart .ct-grid-background, .ct-chart .ct-line {
+    fill: none;
+}
