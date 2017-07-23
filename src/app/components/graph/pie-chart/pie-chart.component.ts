@@ -1,22 +1,59 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, OnChanges } from '@angular/core';
+import * as Highcharts from 'highcharts'
 
 @Component({
   selector: 'app-pie-chart',
   templateUrl: './pie-chart.component.html',
   styleUrls: ['./pie-chart.component.css']
 })
-export class PieChartComponent {
+export class PieChartComponent implements OnInit, OnChanges {
+  @Input() data: any
+  @Input() width: number
+  @Input() height: number
+  @Input() title: string
+  private chart: Highcharts
 
-  public pieChartLabels: string[] = ['Download Sales', 'In-Store Sales', 'Mail Sales'];
-  @Input() public pieChartData: number[] = [40, 30, 30];
-  public pieChartType = 'pie';
+  constructor () {}
 
-  // events
-  public chartClicked(e: any): void {
-    console.log(e);
+  addToSet (stat) {
+    this.chart.series[0].addPoint(stat)
+    // this.chart.series[0].setData([this.data])
+    // this.chart.redraw()
   }
 
-  public chartHovered(e: any): void {
-    console.log(e);
+  ngOnChanges () { }
+
+  ngOnInit () {
+    this.chart = Highcharts.chart('pie-chart', {
+      chart: {
+        plotBackgroundColor: null,
+        plotBorderWidth: null,
+        plotShadow: false,
+        type: 'pie'
+      },
+      title: {
+        text: ''
+      },
+      tooltip: {
+        pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+      },
+      plotOptions: {
+        pie: {
+          allowPointSelect: true,
+          cursor: 'pointer',
+          borderColor: '#f4c63d',
+          borderWidth: '4px',
+          
+          dataLabels: {
+            enabled: true,
+            format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+            style: {
+              color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+            }
+          }
+        }
+      },
+      series: [ this.data ]
+    })
   }
 }

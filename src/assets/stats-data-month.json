@@ -1,0 +1,32 @@
+{
+    "name": "Guys",
+    "colorByPoint": true,
+    "data": [
+        {
+    "name": "Isaac",
+    "y": 56.33
+        },
+        {
+    "name": "Pipo",
+    "y": 24.03,
+    "sliced": true,
+    "selected": true
+        },
+        {
+    "name": "Fidel",
+    "y": 10.38
+        },
+        {
+    "name": "Lalo",
+    "y": 333
+        },
+        {
+    "name": "Your mom",
+    "y": 12
+        },
+        {
+    "name": "Arya Stark",
+    "y": 12
+        }
+    ]
+}

@@ -4,25 +4,25 @@
     <form #form="ngForm">
         <div class="badge">
             <label for="bar">
-                bar graph<input value="bar" id="bar" type="radio" name="type" ngModel>
+                bar graph<input value="bar" id="bar" type="radio" name="type" [(ngModel)]="selection" checked>
             </label>
         </div>
         <div class="badge">
             <label for="line">
-                line graph<input value="line" id="line" type="radio" name="type" ngModel>
+                line graph<input value="line" id="line" type="radio" name="type" [(ngModel)]="selection">
             </label>
         </div>
         <div class="badge">
             <label for="pie">
-                pie chart<input value="pie" id="pie" type="radio" name="type" ngModel>
+                pie chart<input value="pie" id="pie" type="radio" name="type" [(ngModel)]="selection">
             </label>
         </div>
     </form>
 
-    <div>
-        <div *ngIf="form.value.type == 'bar'">
+    <div class="col-sm-10">
+        <div *ngIf="selection === 'bar'">
             <app-bar-graph
-                title="Sales Bar Graphic"
+                title="(d3)Sales Bar Graphic"
                 width="700"
                 height="350"
                 [data]="barData" 
@@ -31,16 +31,21 @@
             >
             </app-bar-graph>
         </div>
-        <div *ngIf="form.value.type == 'line'">
+        <div *ngIf="selection === 'line'">
             <app-line-graph
-                title="Weekly Line Graphic"
+                title="(Chartist) Weekly Line Graphic"
                 width="700"
                 height="350"
                 [data]="lineData" 
             ></app-line-graph>
         </div>
-        <div *ngIf="form.value.type == 'pie'">
-            <app-pie-chart></app-pie-chart>
+        <div *ngIf="selection === 'pie'">
+            <app-pie-chart
+                title="(Highcharts) Monthly Pie Graphic"
+                width="700"
+                height="350"
+                [data]="pieData" 
+            ></app-pie-chart>
         </div>
     </div>
 </div>

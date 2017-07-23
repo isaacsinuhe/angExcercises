@@ -32,7 +32,7 @@ export class LineGraphComponent implements OnInit {
         showArea: true,
         showLine: true,
         showPoint: true,
-        fullWidth: false,
+        fullWidth: true,
         lineSmooth: Chartist.Interpolation.simple()
       }
     )
@@ -41,8 +41,8 @@ export class LineGraphComponent implements OnInit {
       if (data.type === 'line' || data.type === 'area') {
         data.element.animate({
           d: {
-            begin: 2000 * data.index,
-            dur: 2000,
+            begin: 600 * data.index,
+            dur: 600,
             from: data.path.clone().scale(1, 0).translate(0, data.chartRect.height()).stringify(),
             to: data.path.clone().stringify(),
             easing: Chartist.Svg.Easing.easeOutQuint

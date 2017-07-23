@@ -1,11 +1,14 @@
-<p>
-  pie-chart works!
-</p>
-<div style="display: block; width: 50%;">
-  <canvas baseChart 
-    [data]="pieChartData" 
-    [labels]="pieChartLabels" 
-    [chartType]="pieChartType" 
-    (chartHover)="chartHovered($event)"
-    (chartClick)="chartClicked($event)"></canvas>
+<div class="col-sm-6">
+
+  <h1> {{title}} </h1>
+
+  <form #f="ngForm">
+    <label for="person">
+        Person: <input type="text" id="name" name="person" ngModel #a="ngModel"></label>
+    <label for="quantity">
+        Quantity: <input type="number" id="quantity" name="quantity" ngModel #b="ngModel"></label>
+    <input type="submit" value="add" (click)="addToSet({name: a.value, y: b.value})">
+  </form>
+
+  <div id="pie-chart"></div>
 </div>
