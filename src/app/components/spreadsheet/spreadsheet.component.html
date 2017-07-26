@@ -1,3 +1,5 @@
-<p>
-  spreadsheet works!
-</p>
+<h1 class="col-md-12">Spreadsheet</h1>
+<app-spread-grid class="col-md-12" *ngIf="spreadsheet.data.length"
+  [data] = spreadsheet
+  (changesOfData) = spreadsheetChange($event)
+></app-spread-grid>

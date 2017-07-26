@@ -1,0 +1,25 @@
+<form class="col-sm-12">
+  <div [ngClass]="{'alert alert-success fade in': !!detected}">
+   {{detected}}
+  </div>
+<table class="table table-bordered table-condensed">
+  <thead>
+    <tr>
+      <td class="btn-warning" *ngFor="let label of data.cols">
+        <h3>{{label}}</h3>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let row of rows; index as i">
+      <td  *ngFor="let datum of row; index as j">
+        <input class="form-control btn-primary" type="text" 
+          value={{datum}} 
+          name="{{i}}-{{j}}" 
+          (change)="changeData($event, i, j)">
+      </td> 
+    </tr>
+  </tbody>
+  <tfoot></tfoot>
+</table>
+
+</form>

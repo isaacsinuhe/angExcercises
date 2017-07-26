@@ -9,6 +9,7 @@ import { PieChartComponent } from '../components/graph/pie-chart/pie-chart.compo
 import { LineGraphComponent } from '../components/graph/line-graph/line-graph.component';
 import { SpreadsheetComponent } from '../components/spreadsheet/spreadsheet.component';
 import { TextAreaComponent } from '../components/text-area/text-area.component';
+import { ViewTaComponent } from '../components/view-ta/view-ta.component';
 import { MultiStepComponentComponent } from '../components/multi-step-component/multi-step-component.component';
 import { ImageGalleryComponent } from '../components/image-gallery/image-gallery.component';
 import { NotesComponent } from '../components/notes/notes.component';
@@ -23,7 +24,7 @@ const routes: Route[] = [
   { path: 'pie-chart', component: PieChartComponent },
   { path: 'line-graph', component: LineGraphComponent },
   { path: 'spreadsheet', component: SpreadsheetComponent },
-  { path: 'textarea', component: TextAreaComponent },
+  { path: 'textarea', component: ViewTaComponent },
   { path: 'multi-step-component', component: MultiStepComponentComponent },
   { path: 'image-gallery', component: ImageGalleryComponent },
   { path: 'notes', component: NotesComponent },

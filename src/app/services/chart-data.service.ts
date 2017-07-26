@@ -30,32 +30,24 @@ export class ChartDataService {
   }
 
   getEmployeePerformance (): Observable<Array<SalesPerformance>> {
-    return this.request = this.http.get('../assets/company-data.json')
+    return this.http.get('../assets/company-data.json')
       .take(1)
       .map( result => result.json())
-      // .merge(
-      //   Observable.interval(1000)
-      //     .switchMap(() => this.request)
-      // )
   }
   getWeeklyStats(): Observable<{ labels: string[], series: number[] }> {
-    return this.request = this.http.get('../assets/stats-data.json')
+    return this.http.get('../assets/stats-data.json')
       .take(1)
       .map( result => result.json())
-      // .merge(
-      //   Observable.interval(1000)
-      //     .switchMap(() => this.request)
-      // )
   }
-
   getMonthlyStats(): Observable<any> {
-    return this.request = this.http.get('../assets/stats-data-month.json')
+    return this.http.get('../assets/stats-data-month.json')
       .take(1)
       .map( result => result.json())
-      // .merge(
-      //   Observable.interval(1000)
-      //     .switchMap(() => this.request)
-      // )
+  }
+  getGlobalSales(): Observable<any> {
+    return this.http.get('../assets/sales.json')
+      .take(1)
+      .map( result => result.json())
   }
 
 

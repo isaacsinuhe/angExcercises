@@ -21,6 +21,9 @@ import { NotesComponent } from './components/notes/notes.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { HomeComponent } from './components/home/home.component';
 import { GraphComponent } from './components/graph/graph.component';
+import { SpreadGridComponent } from './components/spread-grid/spread-grid.component';
+import { ViewTaComponent } from './components/view-ta/view-ta.component';
+import { OverflowHighlightDirective } from './directives/overflow-highlight.directive';
 
 @NgModule({
   imports: [
@@ -44,6 +47,9 @@ import { GraphComponent } from './components/graph/graph.component';
     PageNotFoundComponent,
     HomeComponent,
     GraphComponent,
+    SpreadGridComponent,
+    ViewTaComponent,
+    OverflowHighlightDirective
   ],
   providers: [ ChartDataService ],
   bootstrap: [AppComponent]
