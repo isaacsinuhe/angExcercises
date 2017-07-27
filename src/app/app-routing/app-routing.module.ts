@@ -10,6 +10,7 @@ import { LineGraphComponent } from '../components/graph/line-graph/line-graph.co
 import { SpreadsheetComponent } from '../components/spreadsheet/spreadsheet.component';
 import { TextAreaComponent } from '../components/text-area/text-area.component';
 import { ViewTaComponent } from '../components/view-ta/view-ta.component';
+import { MultiContainerComponent } from '../components/multi-container/multi-container.component';
 import { MultiStepComponentComponent } from '../components/multi-step-component/multi-step-component.component';
 import { ImageGalleryComponent } from '../components/image-gallery/image-gallery.component';
 import { NotesComponent } from '../components/notes/notes.component';
@@ -25,7 +26,7 @@ const routes: Route[] = [
   { path: 'line-graph', component: LineGraphComponent },
   { path: 'spreadsheet', component: SpreadsheetComponent },
   { path: 'textarea', component: ViewTaComponent },
-  { path: 'multi-step-component', component: MultiStepComponentComponent },
+  { path: 'multi-container', component: MultiContainerComponent },
   { path: 'image-gallery', component: ImageGalleryComponent },
   { path: 'notes', component: NotesComponent },
   { path: '**', component: PageNotFoundComponent }

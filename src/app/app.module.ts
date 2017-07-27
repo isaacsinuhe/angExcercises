@@ -24,6 +24,7 @@ import { GraphComponent } from './components/graph/graph.component';
 import { SpreadGridComponent } from './components/spread-grid/spread-grid.component';
 import { ViewTaComponent } from './components/view-ta/view-ta.component';
 import { OverflowHighlightDirective } from './directives/overflow-highlight.directive';
+import { MultiContainerComponent } from './components/multi-container/multi-container.component';
 
 @NgModule({
   imports: [
@@ -49,7 +50,8 @@ import { OverflowHighlightDirective } from './directives/overflow-highlight.dire
     GraphComponent,
     SpreadGridComponent,
     ViewTaComponent,
-    OverflowHighlightDirective
+    OverflowHighlightDirective,
+    MultiContainerComponent
   ],
   providers: [ ChartDataService ],
   bootstrap: [AppComponent]

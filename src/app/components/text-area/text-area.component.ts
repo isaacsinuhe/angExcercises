@@ -6,12 +6,9 @@ import { Input, Component, OnInit } from '@angular/core';
   styleUrls: ['./text-area.component.css']
 })
 export class TextAreaComponent implements OnInit {
-  @Input() public maxLength: number
-  constructor() { }
+  private b = '<b>sda'
+  constructor() {  }
 
   ngOnInit() {
-  }
-  a (e) {
-    console.log(e);
   }
 }

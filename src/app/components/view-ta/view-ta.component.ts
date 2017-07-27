@@ -6,10 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./view-ta.component.css']
 })
 export class ViewTaComponent implements OnInit {
-  private maxLenght: number
-  constructor() {
-    this.maxLenght = 8
-  }
+  constructor() { }
 
   ngOnInit() {
   }

@@ -1,1 +1,7 @@
-<textarea [maxLength]="maxLength" name="a" id="a" cols="30" (input)="a($event)"></textarea>
+<textarea
+    [highlightOver]="{color: 'blue', max: 20}"
+    [ngClass] = "['highlightOver', 'col-md-12']"
+    name="a"
+    cols="30"
+    rows="20"
+    ></textarea>

@@ -1,0 +1,4 @@
+[ng-reflect-highlight-over]::selection{
+    background-color: initial;
+    color: red;
+}
