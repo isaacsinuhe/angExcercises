@@ -1,0 +1,23 @@
+[ng-reflect-highlight-over]::selection{
+    background-color: initial;
+    color: red;
+}
+.form-control.ng-invalid.ng-touched{
+    border-color: red;
+}
+a{
+    cursor: pointer;
+}
+.active {
+    background-color: blue;
+}
+
+.panel-heading {
+    position: relative;
+}
+.badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    transform: scale(1.5, 1.5);
+}

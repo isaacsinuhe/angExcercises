@@ -2,8 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-routing/app-routing.module'
-import { ChartsModule } from 'ng2-charts/ng2-charts';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { ChartDataService } from './services/chart-data.service';
 import { HttpModule } from '@angular/http';
@@ -25,14 +24,16 @@ import { SpreadGridComponent } from './components/spread-grid/spread-grid.compon
 import { ViewTaComponent } from './components/view-ta/view-ta.component';
 import { OverflowHighlightDirective } from './directives/overflow-highlight.directive';
 import { MultiContainerComponent } from './components/multi-container/multi-container.component';
+import { AsIterablePipe } from './pipes/as-iterable.pipe';
+import { ArrayToStringPipe } from './pipes/array-to-string.pipe';
 
 @NgModule({
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ChartsModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    ReactiveFormsModule
   ],
   declarations: [
     AppComponent,
@@ -51,7 +52,9 @@ import { MultiContainerComponent } from './components/multi-container/multi-cont
     SpreadGridComponent,
     ViewTaComponent,
     OverflowHighlightDirective,
-    MultiContainerComponent
+    MultiContainerComponent,
+    AsIterablePipe,
+    ArrayToStringPipe
   ],
   providers: [ ChartDataService ],
   bootstrap: [AppComponent]
