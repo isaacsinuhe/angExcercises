@@ -2,16 +2,18 @@
     background-color: initial;
     color: red;
 }
-.form-control.ng-invalid.ng-touched{
+.form-control.ng-invalid.ng-dirty {
     border-color: red;
 }
 a{
     cursor: pointer;
 }
+.error {
+    color: red;
+}
 .active {
     background-color: blue;
 }
-
 .panel-heading {
     position: relative;
 }

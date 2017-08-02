@@ -2,16 +2,13 @@
 <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="false">
 
     <div class="panel panel-default">
-      
       <div class="panel-heading" role="tab" id="headingOne">
-
         <div class="badge" *ngIf="forms[0].errors; else noError0">
           {{forms[0].errors}}
         </div>
         <ng-template #noError0>
           <span class="glyphicon glyphicon-ok"></span>
         </ng-template>
-
         <h4 class="panel-title">
           <a role="button" data-toggle="collapse" data-parent="#accordion"
           href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
@@ -22,33 +19,31 @@
       <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
         <div formGroupName="signUp" ngClass="panel-body" *ngIf="forms[0].selectable">
           <label for="username">Username: 
-          <input ngClass="form-control" type="text" id="username" formControlName="username">
-        </label>
+            <input ngClass="form-control" type="text" id="username" formControlName="username">
+          </label>
           <label for="email">Email: 
-          <input ngClass="form-control" type="text" id="email" formControlName="email">
-        </label>
+            <input ngClass="form-control" type="text" id="email" formControlName="email">
+          </label>
           <div formGroupName="password">
             <h3>Create your password: </h3>
             <label for="pass">Password
-            <input ngClass="form-control" type="password" id="pass" formControlName="pass">
-          </label>
+              <input ngClass="form-control" type="password" id="pass" formControlName="pass">
+            </label>
             <label for="pass2">Password
-            <input ngClass="form-control" type="password" id="pass2" formControlName="pass2">
-          </label>
+              <input ngClass="form-control" type="password" id="pass2" formControlName="pass2">
+            </label>
           </div>
+          <div ngClass="error"  *ngFor="let e of forms[0].errorsList">{{e}}</div>
         </div>
       </div>
-
     </div>
 
     <div class="panel panel-default">
       <div class="panel-heading" role="tab" id="headingTwo">
-
         <span *ngIf="forms[1].errors; else noError1" class="badge">{{forms[1].errors}}</span>
         <ng-template #noError1>
           <span class="glyphicon glyphicon-ok"></span>
         </ng-template>
-
         <h4 class="panel-title">
           <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
             <h1>{{forms[1].alias}}</h1>
@@ -56,33 +51,40 @@
         </h4>
       </div>
       <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
-
-        <div formGroupName="data" ngClass="panel-body" *ngIf="forms[1].selectable">
+        <div formGroupName="data" ngClass="panel-body" *ngIf="forms[1].selectable"> 
           <label for="firstname">Firstname: 
-          <input ngClass="form-control" type="text" id="firstname" formControlName="firstname">
-        </label>
+            <input ngClass="form-control" type="text" id="firstname" formControlName="firstname">
+          </label>
           <label for="lastname">Lastname: 
-          <input ngClass="form-control" type="text" id="lastname" formControlName="lastname">
-        </label>
+            <input ngClass="form-control" type="text" id="lastname" formControlName="lastname">
+          </label>
           <label for="address">Address: 
-          <input ngClass="form-control" type="text" id="address" formControlName="address">
-        </label>
+            <input ngClass="form-control" type="text" id="address" formControlName="address">
+          </label>
           <label for="birthdate">Birthdate: 
-          <input ngClass="form-control" type="text" id="birthdate" formControlName="birthdate">
-        </label>
+            <input ngClass="form-control" type="date" id="birthdate" formControlName="birthdate">
+          </label>
+          <span>Gender:</span>
+          <label for="male">Male: 
+            <input ngClass="form-control" type="radio" id="male" formControlName="gender" value="male">
+          </label>
+          <label for="female">Female: 
+            <input ngClass="form-control" type="radio" id="female" formControlName="gender" value="female">
+          </label>
+          <label for="none">None: 
+            <input ngClass="form-control" type="radio" id="female" formControlName="gender" value="none">
+          </label>
+          <div ngClass="error" *ngFor="let e of forms[1].errorsList">{{e}}</div>
         </div>
-
       </div>
     </div>
 
     <div class="panel panel-default">
       <div class="panel-heading" role="tab" id="headingThree">
-        
         <span *ngIf="forms[2].errors; else noError2" class="badge">{{forms[2].errors}}</span>
         <ng-template #noError2>
           <span class="glyphicon glyphicon-ok"></span>
         </ng-template>
-
         <h4 class="panel-title">
           <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
             <h1>{{forms[2].alias}}</h1>
@@ -92,26 +94,25 @@
       <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
         <div formGroupName="creditCard" ngClass="panel-body" *ngIf="forms[2].selectable">
           <label for="cardnumber">Number: 
-          <input ngClass="form-control" type="text" id="cardnumber" formControlName="cardNumber">
-        </label>
-          <label for="keynumber">Secret digits: 
-          <input ngClass="form-control" type="text" id="keynumber" formControlName="keyNumber">
-        </label>
-          <label for="type">Type: 
-          <input ngClass="form-control" type="text" id="type" formControlName="type">
-        </label>
+            <input ngClass="form-control" type="number" id="cardnumber" formControlName="cardNumber">
+          </label>
+            <label for="keynumber">Secret digits: 
+            <input ngClass="form-control" type="number" id="keynumber" formControlName="keyNumber">
+          </label>
+            <label for="type">Type: 
+            <input ngClass="form-control" type="text" id="type" formControlName="type">
+          </label>
+          <div ngClass="error" *ngFor="let e of forms[2].errorsList">{{e}}</div>
         </div>
       </div>
     </div>
 
     <div class="panel panel-default">
       <div class="panel-heading" role="tab" id="headingFour">
-
         <span *ngIf="forms[3].errors; else noError3" class="badge">{{forms[3].errors}}</span>
         <ng-template #noError3>
           <span class="glyphicon glyphicon-ok"></span>
         </ng-template>
-
         <h4 class="panel-title">
           <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" 
           href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">  
@@ -120,25 +121,38 @@
         </h4>
       </div>
       <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
-        <div formGroupName="preferences" ngClass="panel-body" *ngIf="forms[3].selectable">
+        <div formGroupName="preferences" ngClass="panel-body" *ngIf="forms[3].selectable"> 
           <label for="comments">Comments: 
-          <textarea 
-            [highlightOver]="{color: 'blue', max: 20}" 
-            [ngClass]="['highlightOver', 'col-md-12', 'form-control']"
-            formControlName="comments" cols="30" rows="5"
-            name="comments"></textarea>
-        </label>
+            <textarea 
+              [highlightOver]="{color: 'blue', max: 20}" 
+              [ngClass]="['highlightOver', 'col-md-12', 'form-control']"
+              formControlName="comments" cols="30" rows="5"
+              name="comments">
+            </textarea>
+          </label>
           <label for="sendmespam">
-          sendmespam
-          <input ngClass="form-control" type="checkbox" id="sendmespam" formControlName="sendMeSpam">
-        </label>
+            sendmespam
+            <input ngClass="form-control" type="checkbox" id="sendmespam" formControlName="sendMeSpam">
+          </label>
           <label for="agreed">
-          I agree with all the terms
-          <input ngClass="form-control" type="checkbox" id="agreed" formControlName="agreed">
-        </label>
+            I agree with all the terms
+            <input ngClass="form-control" type="checkbox" id="agreed" formControlName="agreed">
+          </label>
+          <div formGroupName="dateRange">
+            <div>Tell us ranges of date you want us to bother with spam (just today is default)</div>
+            <label for="from">
+              From:
+              <input id="from" formControlName="from" type="date">
+            </label>
+            <label for="to">
+              To:
+              <input id="to" formControlName="to" type="date">
+            </label>
+          </div>
+          <div ngClass="error" *ngFor="let e of forms[3].errorsList">{{e}}</div>
         </div>
       </div>
     </div>
-    <input type="submit" value="click on me">
+    <input type="submit" value="Submit the form">
 </div>
 </form>

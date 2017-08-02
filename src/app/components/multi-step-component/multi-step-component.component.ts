@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators, ValidationErrors } from '@angular/forms'
-import { equalValidator } from '../../validators/formValidators'
+import { equalValidator, dateRangeValidator } from '../../validators/formValidators'
+import * as moment from 'moment'
 declare var $
 
 @Component({
@@ -12,8 +13,7 @@ export class MultiStepComponentComponent implements OnInit {
   formModel
   forms
 
-  constructor(private fb: FormBuilder) {
-  }
+  constructor(private fb: FormBuilder) {}
 
   ngOnInit() {
     this.forms = [
@@ -30,11 +30,13 @@ export class MultiStepComponentComponent implements OnInit {
             pass: ['', [
               Validators.required,
               Validators.minLength(3),
-              Validators.maxLength(12)]],
+              Validators.maxLength(12)]
+            ],
             pass2: ['', [
               Validators.required,
               Validators.minLength(3),
-              Validators.maxLength(12)]]
+              Validators.maxLength(12)]
+            ]
           }, { validator: equalValidator }),
           next: ['Next']
         })
@@ -48,7 +50,8 @@ export class MultiStepComponentComponent implements OnInit {
           firstname: ['', Validators.required],
           lastname: ['', Validators.required],
           address: ['', Validators.required],
-          birthdate: ['', Validators.required],
+          birthdate: [moment().format('YYYY-MM-DD'), Validators.required],
+          gender: ['none', Validators.required],
           next: ['Next']
         }, {})
       }, {
@@ -62,7 +65,7 @@ export class MultiStepComponentComponent implements OnInit {
           keyNumber: ['', Validators.required],
           type: ['', Validators.required],
           next: ['Next']
-        }, {})
+        })
       }, {
         valid: false,
         errors: '!',
@@ -71,6 +74,10 @@ export class MultiStepComponentComponent implements OnInit {
         alias: 'Preferences',
         group: this.fb.group({
           comments: ['', Validators.required],
+          dateRange: this.fb.group({
+            from: [moment().format('YYYY-MM-DD'), Validators.required],
+            to: [moment().format('YYYY-MM-DD'), Validators.required]
+          }, { validator: dateRangeValidator }),
           sendMeSpam: ['true'],
           agreed: ['true'],
           next: ['Next']
@@ -86,7 +93,6 @@ export class MultiStepComponentComponent implements OnInit {
     this.attachErrorsList(errors, step)
     step.valid = !!step.errors
   }
-
 
   getFormValidationErrors(formGroup) {
     let errors = []
@@ -107,9 +113,9 @@ export class MultiStepComponentComponent implements OnInit {
 
   onSubmit() { 
     if (this.isFormValid())
-      console.log('fine go ahead')
+      alert('You just submitted the form, congratulations!!')
     else
-      console.log('stop it :O')
+      alert('You should completely fill the form')
   }
 
   makeStepsSelectable () {
@@ -147,7 +153,6 @@ export class MultiStepComponentComponent implements OnInit {
     step.errorsList = new Array
     
     errors.forEach(({ control: key, error, value }, index) => {
-    console.log(key, error, value);
       switch (error) {
         case 'required':
           step.errorsList.push(`The field ${key} is ${error}`)
@@ -163,6 +168,9 @@ export class MultiStepComponentComponent implements OnInit {
           break;
         case 'equal':
           step.errorsList.push(`The ${key} fields must be ${error}`)
+          break;
+        case 'dateRange':
+          step.errorsList.push(`The from date must be lower than the to date`)
           break;
         default:
           step.errorsList.push(`generic ${key} ------------- ${value.requiredLength}`)
